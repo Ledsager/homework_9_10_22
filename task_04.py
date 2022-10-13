@@ -3,7 +3,7 @@
 # Позиции хранятся в файле pozition.txt в одной строке одно число.
 
 # формирование списка [-n,n]
-def DigitsMas(length):
+def digits_mas(length):
     mas = []
     for i in range(-length, length+1):
         mas.append(i)
@@ -18,7 +18,7 @@ def DigitsMas(length):
 # Полученное число в цикле сравнивается с позицией элемента списка.
 # Если значения равны выполняем условие перемножения.
 
-def DigitsMultiply(array1):
+def digits_multiply(array1):
     multyplypozition = 1
     with open('pozition.txt', 'r') as fileread:
         for line in fileread:
@@ -30,7 +30,7 @@ def DigitsMultiply(array1):
 
 # 2й способ: считываем весь файл с позициями необходимых элементов и формируем список
 
-def DigitsFileArray():
+def digits_file_array():
     with open('pozition.txt', 'r') as f:
         f_contents = f.read()
     filestr=f_contents.split()
@@ -40,14 +40,14 @@ def DigitsFileArray():
 print('Введите целое число (n>0):')
 n = int(input())
 if (n % 1 == 0 and n > 0):
-    array1 = DigitsMas(n)
-    print('1й вариант: Произведение элементов на заданных позициях = ',DigitsMultiply(array1))
+    array1 = digits_mas(n)
+    print('1й вариант: Произведение элементов на заданных позициях = ',digits_multiply(array1))
 else:
     print('введенное число не соответствует условию!')
 # 2й способ продолжение: в циклах проверяем условие задачи.
 # Полученный список позиций из файла сравниваем с позициями списка заданным условием задачи.
 # Если условие выполняется то перемножаем нужные значения элементов.
-pozmulty=DigitsFileArray()
+pozmulty=digits_file_array()
 result=1
 for i in range(0, len(array1)):
     for line in pozmulty:
